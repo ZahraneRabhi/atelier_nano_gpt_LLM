@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="nano" name="NanoLLM">
+    <mxGraphModel dx="1470" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- INPUT -->
+        <mxCell id="10" value="Input Tokens (idx)&#10;[B, T]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- EMBEDDING -->
+        <mxCell id="20" value="Embedding Layer&#10;Token + Positional" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="260" y="150" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- TRANSFORMER BLOCK -->
+        <mxCell id="30" value="Transformer Block" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="500" y="80" width="260" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- LN1 -->
+        <mxCell id="31" value="LayerNorm" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- MHA -->
+        <mxCell id="32" value="Multi-Head Self-Attention&#10;(Q, K, V, Masked Softmax)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="520" y="150" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- LN2 -->
+        <mxCell id="33" value="LayerNorm" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="230" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- FFN -->
+        <mxCell id="34" value="FeedForward MLP&#10;Linear → ReLU → Linear" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- LM HEAD -->
+        <mxCell id="40" value="LM Head&#10;Linear(n_embd → vocab_size)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- OUTPUT -->
+        <mxCell id="50" value="Logits&#10;[B, T, vocab_size]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="800" y="250" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CONNECTIONS -->
+        <mxCell id="101" edge="1" source="10" target="20" style="endArrow=block;html=1;" parent="1">
+          <mxGeometry relative="1"/>
+        </mxCell>
+
+        <mxCell id="102" edge="1" source="20" target="30" style="endArrow=block;html=1;" parent="1">
+          <mxGeometry relative="1"/>
+        </mxCell>
+
+        <mxCell id="103" edge="1" source="30" target="40" style="endArrow=block;html=1;" parent="1">
+          <mxGeometry relative="1"/>
+        </mxCell>
+
+        <mxCell id="104" edge="1" source="40" target="50" style="endArrow=block;html=1;" parent="1">
+          <mxGeometry relative="1"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
